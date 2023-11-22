@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zoo</title>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="./src/css/style.css">
+
+        <script src="./src/libs/three.js-master/build/three.js"></script>
+        <script src="./src/libs/controls/OrbitControls.js"></script>
+        <script src="./src/libs/controls/TrackballControls.js"></script>
+
+        <script src="./src/libs/controls/FirstPersonControls.js"></script>
+        <script src="./src/libs/controls/PointerLockControls.js"></script>
+
+        <!--OBJ / MTL-->
+        <script src="./src/libs/load/OBJLoader.js"></script>
+        <script src="./src/libs/load/MTLLoader.js"></script>
+
+        <!--GLTF LOADER-->
+        <script src="./src/libs/load/DRACOLoader.js"></script>
+        <script src="./src/libs/load/GLTFLoader.js"></script>
+
+        <script src="./src/libs/others/Sound.js"></script>
+
+        <script type="module" src="./src/js/main.js"></script>
+    </head>
+    <body>
+        
+        <div class="mensaje" id="welcomeMessage">
+            <b>Bienvenido al ZOO</b>
+            <br>
+            <small><small>
+                    Explora la diversidad de la vida salvaje desde la comodidad
+                    de tu pantalla.
+                    <p>Utiliza los controles para navegar por el zoológico
+                        virtual y descubrir fascinantes criaturas.</p>
+                </small></small>
+                <img src="./src/img/flechas.png" alt="Imagen de información">
+        </div>
+        <div class="hud2" id="DesactiveSound">
+            <button type="button" id="toggleSoundBtn" class="btn"
+                style="background-color: rgb(11, 6, 26); color: white;">
+                <i id="soundIcon" class="bi bi-volume-mute-fill"></i>
+            </button>
+        </div>
+        <div class="hud" id="changeBackgroundBtn">
+            <button type="button" class="btn" id="modeBtn"
+                style="background-color: rgb(11, 6, 26); color: white;">
+                <i id="modeIcon" class="bi bi-cloud-moon-fill"></i>
+                <span id="modeText">Modo Noche</span>
+            </button>
+        </div>
+
+        <!--BOTON PANDA-->
+        <audio id="infoPandaSound" src="./src/sonidos/panda.mp3" type="audio/mpeg">
+        </audio>
+        <div class="hud3" id="infoPandaBtn">
+            <button type="button" id="pandaBtn" class="btnInfo"
+                style="background-color: rgba(33, 33, 33, 0.904); color: white; border-radius: 20px;">
+                <!--<i id="infoIcon" class="bi bi-exclamation-circle"></i>-->
+                <img src="./src/img/panda.png" alt="Imagen de información">
+            </button>
+        </div>
+        <div class="info" id="infoPanda" style="display: none;">
+            <img class="tarjetaImg" src="./src/img/Tarjeta-Panda.png" alt="Imagen de información">
+        </div>
+
+        <!--BOTON COCODRILO-->
+        <audio id="infoCocodriloSound" src="./src/sonidos/cocodrilo.mp3" type="audio/mpeg">
+        </audio>
+        <div class="hud4" id="infoCocodriloBtn">
+            <button type="button" id="cocodriloBtn" class="btnInfo"
+                style="background-color:  rgba(33, 33, 33, 0.904); color: white; border-radius: 20px;">
+                <img src="./src/img/cocodrilo.png" alt="Imagen de información">
+            </button>
+        </div>
+        <div class="info" id="infoCocodrilo" style="display: none;">
+            <img class="tarjetaImg" src="./src/img/Tarjeta-Cocodrilo.png" alt="Imagen de información">
+        </div>
+       
+       <!--BOTON JIRAFA-->
+        <audio id="infoJirafaSound" src="./src/sonidos/jirafa.mp3" type="audio/mpeg">
+        </audio>
+        <div class="hud5" id="infoJirafaBtn">
+            <button type="button" id="jirafaBtn" class="btnInfo"
+                style="background-color:  rgba(33, 33, 33, 0.904);color: white; border-radius: 20px;">
+                <img src="./src/img/jirafa.png" alt="Imagen de información">
+            </button>
+        </div>
+        <div class="info" id="infoJirafa" style="display: none;">
+            <img class="tarjetaImg" src="./src/img/Tarjeta-Jirafa.png" alt="Imagen de información">
+        </div>
+
+        <!--BOTON ORCA-->
+        <audio id="infoOrcaSound" src="./src/sonidos/orca.mp3" type="audio/mpeg">
+        </audio>
+        <div class="hud6" id="infoOrcaBtn">
+            <button type="button" id="orcaBtn" class="btnInfo"
+                style="background-color:  rgba(33, 33, 33, 0.904); color: white; border-radius: 20px;">
+                <img src="./src/img/orca.png" alt="Imagen de información">
+            </button>
+        </div>
+        <div class="info" id="infoOrca" style="display: none;">
+            <img class="tarjetaImg" src="./src/img/Tarjeta-Orca.png" alt="Imagen de información">
+        </div>
+
+        <!--AUDIO DE FONDO-->
+        <audio id="audioElement" autoplay loop>
+            <source src="./src/sonidos/zoo.mp3" type="audio/mpeg">
+        </audio>
+        
+    </body>
+</html>
