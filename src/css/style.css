@@ -27,7 +27,6 @@ body {
   bottom: 10px;
   left: 20px;
 }
-
 .hud3, .hud4, .hud5, .hud6{
   display: block;
   position: absolute;
@@ -55,72 +54,77 @@ body {
 
 .mensaje{
   display: block;
-  position: relative; /* Cambiar la posición a relativa */
+  position: absolute;
+  left: 400px;
+  top: 100px;
+  background: rgba(99,157,244, 0.8);
+  border: none;
+  border-radius: 1em;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
   padding: 20px;
   color: aliceblue;
-  opacity: 90%;
 }
-
 .info{
   display: block;
-  position: relative; /* Cambiar la posición a relativa */
+  position: absolute;
+  left: 400px;
+  top: 50%;
+  background: rgba(150, 150, 158, 0.6);
+  border: none;
+  border-radius: 1em;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 100%;
   padding: 20px;
   color: aliceblue;
   opacity: 90%;
 }
-
 .tarjetaImg{
   position: absolute;
   padding-left: 200px;
-  top: 10%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-  height: 400px;
-  width: 950px;
-  margin-bottom: 0;
-  border-radius:1em;
+top: 10%;
+left: 80%;
+transform: translate(-50%, -50%);
+height: 400px;
+width: 950px;
+margin-bottom: 0;
+border-radius:1em;
 }
 
-/* Para todos los tamaños de pantalla */
-.info, .mensaje {
-  position: relative; /* Cambiar la posición a relativa */
-  padding: 20px;
-  color: aliceblue;
-  opacity: 90%;
-}
-
-/* Para pantallas más grandes que 1024px */
+/* For screens wider than 1024px */
 @media (min-width: 1024px) {
   .info, .mensaje {
-    top: 20%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
 }
 
-/* Para pantallas entre 768px y 1023px */
+/* For screens between 768px and 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .info, .mensaje {
-    top: 30%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
 }
 
-/* Para pantallas entre 480px y 767px */
+/* For screens between 480px and 767px */
 @media (min-width: 480px) and (max-width: 767px) {
   .info, .mensaje {
-    top: 40%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
 }
 
-/* Para pantallas más pequeñas que 480px */
+/* For screens smaller than 480px */
 @media (max-width: 479px) {
   .info, .mensaje {
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
 }
