@@ -5,15 +5,13 @@ var scene = null,
     Floors = null,
     controls = null,
     input = { left: false, right: false, up:false, down: false },
+    scale = 1,
+    rotSpd = 0.05,
+    spd = 10,
     fondoActual = 'dia.jpg';
 
 
-var scale = 1;
-var rotSpd = 0.05;
-var spd = 10;
-var input = { left: false, right: false, up:false, down: false };
-
-
+//-------------Cargar Escena con Three.JS ----------------------------------
 scene = new THREE.Scene();
 camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 3000);
 
@@ -25,6 +23,7 @@ document.body.appendChild(renderer.domElement);
 //Color de fondo
 scene.background = new THREE.Color("white");
 
+//------- Controles Orbitales ---------------
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.12;
@@ -40,11 +39,12 @@ light.position.set(1, 1, 1);
 scene.add(light);
 //--------------------------------------------
 
-//Cargar el fondo
+//Cargar el fondo y el mundo
 loadBackground(fondoActual);
 loadObjMtl("/src/modelos/OBJ_MTL/", "zoologico.mtl", "zoologico.obj", { x: 0, y: 0, z: 0 });
 
 
+// --------- Función para cargar el OBJ y MTL ----------------
 function loadObjMtl(path, nameMTL, nameOBJ, position) {
 
     //1.Load MTL (Texture)
@@ -139,7 +139,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //--------Sonido de Fondo-------------------
-var soundEnabled = true; // Variable para rastrear si el sonido está habilitado o deshabilitado
+// Variable para rastrear si el sonido está habilitado o deshabilitado
+var soundEnabled = true; 
 var audioElement = document.getElementById("audioElement");
 //Cambiar icono del boton de sonido
 document.getElementById("toggleSoundBtn").addEventListener('click', function () {
@@ -377,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //-------------------------------------------------------------------
-//Funcion para cargar el fondo
+//Funcion para cargar el archivo defondo
 function loadBackground(backgroundFile) {
     //Load background texture
     const loader = new THREE.TextureLoader();
@@ -420,14 +421,9 @@ document.getElementById("modeBtn").addEventListener('click', function () {
 
 });
 
-
-
-
-
 //------------------------------------------
 function animate() {
     requestAnimationFrame(animate);
-    // Rotar el objeto contenedor según las teclas presionadas
 
     // Rotar el objeto contenedor según las teclas presionadas
     if (input.left) {
